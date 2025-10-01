@@ -2,9 +2,25 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
+
+# Virtual environment
+venv/
+ENV/
+env/
+
+# VS Code settings
+.vscode/
 
 # C extensions
 *.so
+
+# Logs
+*.log
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
 
 # Distribution / packaging
 .Python
