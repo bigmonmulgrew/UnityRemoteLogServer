@@ -52,13 +52,36 @@ function renderLogs(logs) {
             stackRow.className = "stack-row";
             stackRow.innerHTML = `
                 <td colspan="6">
-                    <pre>${log.stacktrace || "No stack trace"}</pre>
+                    <pre>${highlightStacktrace(log.stacktrace)}</pre>
                 </td>
             `;
             tbody.appendChild(stackRow);
         }
     });
 }
+
+function highlightStacktrace(trace) {
+    if (!trace) return "No stack trace";
+
+    return trace
+        // Errors/exceptions/asserts
+        .replace(/Assertion/g, '<span class="kw-assert">Assertion</span>')
+        .replace(/Exception/g, '<span class="kw-exception">Exception</span>')
+        .replace(/Error/g, '<span class="kw-error">Error</span>')
+
+        // Unity engine frames
+        .replace(/UnityEngine\.[\w:.<>]+/g, '<span class="kw-unity">$&</span>')
+
+        // Your project code (Assets/ scripts, Utils, etc.)
+        .replace(/(Utils\.[\w:.<>]+|ObjectExample\.[\w:.<>]+)/g, '<span class="kw-user">$&</span>')
+
+        // File + line number
+        .replace(/\(at (Assets\/[^\)]+):(\d+)\)/g,
+            '(at <span class="kw-path">$1</span>:<span class="kw-line">$2</span>)'
+
+        );
+}
+
 
 async function update() {
     const logs = await fetchLogs();

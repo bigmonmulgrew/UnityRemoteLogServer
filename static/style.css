@@ -97,9 +97,21 @@ tr.selected {
     background: #264f78; /* unity-style selection blue */
 }
 
+.kw-error { color: #ff5555; font-weight: bold; }
+.kw-exception { color: #ff8080; font-weight: bold; }
+.kw-assert { color: #ff55ff; font-weight: bold; }
+
+.kw-unity { color: #888; }               /* dimmed Unity internals */
+.kw-user { color: #0af; font-weight: bold; } /* cyan = your code */
+
+.kw-path { color: #aaa; font-style: italic; } /* file path */
+.kw-line { color: #fff; font-weight: bold; }  /* line number */
+
 #logTable th:nth-child(1), #logTable td:nth-child(1) { width: 50px; }   /* index */
 #logTable th:nth-child(2), #logTable td:nth-child(2) { width: 120px; }  /* time */
 #logTable th:nth-child(3), #logTable td:nth-child(3) { width: 100px; }  /* type */
 #logTable th:nth-child(4), #logTable td:nth-child(4) { width: 80px; }   /* level */
 #logTable th:nth-child(5), #logTable td:nth-child(5) { width: 150px; }  /* context */
 #logTable th:nth-child(6), #logTable td:nth-child(6) { max-width: 600px; } /* message */
+
+
