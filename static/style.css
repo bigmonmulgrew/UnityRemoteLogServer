@@ -1,0 +1,105 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background: #1e1e1e;
+    color: #ccc;
+}
+
+header {
+    background: #333;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#filters label {
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+thead {
+    background: #444;
+    color: #eee;
+}
+
+th, td {
+    padding: 6px;
+    border-bottom: 1px solid #333;
+    text-align: center;   /* center all by default */
+    word-wrap: break-word;
+}
+
+td.message-cell {
+    text-align: left;     /* only message column left-aligned */
+}
+
+tr:nth-child(even) {
+    background: #2a2a2a;
+}
+
+.log-info { color: #fff; }
+.log-warning { color: #f0c000; }
+.log-error, .log-exception { color: #ff5555; }
+.log-assert { color: #ff55ff; }
+
+@media (max-width: 768px) {
+    th:nth-child(1), td:nth-child(1), /* index */
+    th:nth-child(4), td:nth-child(4), /* level */
+    th:nth-child(5), td:nth-child(5)  /* context */
+    { display: none; }
+}
+.stack-row pre {
+    background: #111;
+    color: #aaa;
+    padding: 8px;
+    margin: 0;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+}
+.stack-row {
+    background: #181818;
+}
+
+.stack-row td {
+    text-align: left; 
+}
+
+.stack-row pre {
+    background: #111;
+    color: #aaa;
+    padding: 8px;
+    margin: 0;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+}
+
+tr {
+    cursor: pointer;
+}
+
+tr:hover {
+    background: #333; /* highlight on hover */
+}
+
+tr.selected {
+    background: #264f78; /* unity-style selection blue */
+}
+
+#logTable th:nth-child(1), #logTable td:nth-child(1) { width: 50px; }   /* index */
+#logTable th:nth-child(2), #logTable td:nth-child(2) { width: 120px; }  /* time */
+#logTable th:nth-child(3), #logTable td:nth-child(3) { width: 100px; }  /* type */
+#logTable th:nth-child(4), #logTable td:nth-child(4) { width: 80px; }   /* level */
+#logTable th:nth-child(5), #logTable td:nth-child(5) { width: 150px; }  /* context */
+#logTable th:nth-child(6), #logTable td:nth-child(6) { max-width: 600px; } /* message */

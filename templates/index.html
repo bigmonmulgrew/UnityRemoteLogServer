@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unity Remote Logs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Unity Remote Logs</h1>
+        <div id="filters">
+            <label><input type="checkbox" value="Log" checked> Info</label>
+            <label><input type="checkbox" value="Warning" checked> Warning</label>
+            <label><input type="checkbox" value="Error" checked> Error</label>
+            <label><input type="checkbox" value="Assert" checked> Assert</label>
+            <label><input type="checkbox" value="Exception" checked> Exception</label>
+            <label style="margin-left:20px;">
+                <input type="checkbox" id="sortToggle" checked> Newest first
+            </label>
+        </div>
+    </header>
+    <main>
+        <table id="logTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Time</th>
+                    <th>Type</th>
+                    <th>Level</th>
+                    <th>Context</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody id="logBody">
+                <!-- Logs inserted here -->
+            </tbody>
+        </table>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
