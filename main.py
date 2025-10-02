@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify, render_template
 import logging
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)  # only show errors, not every request
+#log.setLevel(logging.INFO)  # show info
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
